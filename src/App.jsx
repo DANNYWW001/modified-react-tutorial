@@ -10,6 +10,11 @@ import SimpleList from "./components/SimpleList";
 import ComplexList from "./components/ComplexList";
 import Mystore from "./components/Mystore";
 import LastViewed from "./components/LastViewed";
+import PropsChildren from "./components/PropsChildren";
+import EventHandling from "./components/EventHandling";
+import ConditionalRendering from "./components/ConditionalRendering";
+import SimpleState from "./components/SimpleState";
+import User from "./components/User";
 
 function App() {
   return (
@@ -24,8 +29,14 @@ function App() {
       {/* <JumiaClone/> */}
       {/* <SimpleList /> */}
       {/* <ComplexList /> */}
-      <Mystore />
-      <LastViewed />
+      {/* <Mystore />
+      <LastViewed /> */}
+      {/* <PropsChildren /> */}
+      {/* <EventHandling /> */}
+      {/* <ConditionalRendering /> */}
+      {/* <SimpleState /> */}
+      <User />
+      
     </>
   );
 }

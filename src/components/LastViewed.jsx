@@ -24,6 +24,13 @@ const LastViewed = () => {
       title: "Hisense Split Airconditioner",
       price: 345368,
     },
+    {
+      id: 4,
+      image:
+        "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/41/5331304/1.jpg?5279",
+      title: "RealMe C75 Smart Phone",
+      price: 545368,
+    },
   ];
 
   return (

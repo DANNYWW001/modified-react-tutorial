@@ -5,3 +5,6 @@
 .myinput {
   @apply w-full block p-2.5 border-2 border-black rounded-lg outline-0;
 }
+.mybtn {
+  @apply w-[120px] h-[40px] bg-blue-600 text-white rounded-lg text-lg cursor-pointer;
+}
