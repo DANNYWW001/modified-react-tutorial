@@ -139,3 +139,6 @@ return <p key={index}>{name}</p>
 {id, image, price, title}
   }
   use the MystoreSingleProduct component
+
+
+  we need to create a custom use called use
