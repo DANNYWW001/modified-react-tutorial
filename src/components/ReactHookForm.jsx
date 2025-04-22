@@ -15,6 +15,7 @@ const validationSchema = yup.object().shape({
     .string()
     .email("Invalid Email Address")
     .required("Email is required"),
+    password: yup.string().min(8, "must be 8 characters long").required("Password is required")
 });
 
 const ReactHookForm = () => {
@@ -62,6 +63,15 @@ const ReactHookForm = () => {
           {...register("email")}
         />
         <p className="text-red-500">{errors.email && errors.email.message}</p>
+        <input
+          type="password"
+          placeholder="Password"
+          className={`input mt-2 w-full ${
+            errors.password ? "border border-red-500" : ""
+          }`}
+          {...register("password")}
+        />
+        <p className="text-red-500">{errors.password && errors.password.message}</p>
         <button type="submit" className="w-full mt-2 btn btn-accent">
           Submit
         </button>
