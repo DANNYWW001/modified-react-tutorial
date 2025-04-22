@@ -24,6 +24,13 @@ import FetchUser from "./components/FetchUser"
 import GetAuthors from "./components/GetAuthors";
 import Recipe from "./components/Recipe";
 import SimpleForm from "./components/SimpleForm";
+import MultipleForm from "./components/MultipleForm";
+import OtherInputs from "./components/OtherInputs";
+import { Axios } from "axios";
+import AxiosExample from "./components/AxiosExample";
+import TestDaisy from "./components/TestDaisy";
+import ReactHookForm from "./components/ReactHookForm";
+
 
 function App() {
   return (
@@ -36,7 +43,12 @@ function App() {
       {/* <FetchUser /> */}
       {/* <GetAuthors /> */}
       {/* <Recipe /> */}
-      <SimpleForm />
+      {/* <SimpleForm /> */}
+      {/* // <MultipleForm />
+      // <OtherInputs /> */}
+      {/* <AxiosExample /> */}
+      {/* <TestDaisy /> */}
+      <ReactHookForm />
     </>
   );
 }
