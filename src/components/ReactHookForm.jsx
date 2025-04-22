@@ -1,25 +1,35 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 //useForm -
 // register, handlesubmit
+// yup, cod, Superstruct, joi   they are external libraries used for validation
+
+// define our validation schema
+const validationSchema = yup.object().shape({
+  firstName: yup.string().required("First Name is required"),
+  lastName: yup.string().required("Last Name is required"),
+  email: yup
+    .string()
+    .email("Invalid Email Address")
+    .required("Email is required"),
+});
 
 const ReactHookForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(validationSchema) });
 
   const handleFormSubmit = (data) => {
     console.log(data);
   };
   return (
     <div>
-      <form
-        onSubmit={handleSubmit(handleFormSubmit)}
-        className="myform"
-      >
+      <form onSubmit={handleSubmit(handleFormSubmit)} className="myform">
         <h1>Submit your Details</h1>
         <input
           type="text"
@@ -27,7 +37,7 @@ const ReactHookForm = () => {
             errors.firstName ? "border border-red-500" : ""
           }`}
           placeholder="FIRST NAME"
-          {...register("firstName", { required: "First Name is required" })}
+          {...register("firstName")}
         />
         <p className="text-red-500">
           {errors.firstName && errors.firstName.message}
@@ -38,7 +48,7 @@ const ReactHookForm = () => {
             errors.lastName ? "border border-red-500" : ""
           }`}
           placeholder="LAST NAME"
-          {...register("lastName", { required: "Last Name is required" })}
+          {...register("lastName")}
         />
         <p className="text-red-500">
           {errors.lastName && errors.lastName.message}
@@ -49,10 +59,10 @@ const ReactHookForm = () => {
             errors.email ? "border border-red-500" : ""
           }`}
           placeholder="EMAIL ADDRESS"
-          {...register("email", { required: "Email Name is required" })}
+          {...register("email")}
         />
         <p className="text-red-500">{errors.email && errors.email.message}</p>
-        <button type="submit" className="btn btn-accent">
+        <button type="submit" className="w-full mt-2 btn btn-accent">
           Submit
         </button>
       </form>
