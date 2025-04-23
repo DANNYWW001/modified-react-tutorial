@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useState } from "react";
 
 //useForm -
 // register, handlesubmit
@@ -15,7 +16,10 @@ const validationSchema = yup.object().shape({
     .string()
     .email("Invalid Email Address")
     .required("Email is required"),
-    password: yup.string().min(8, "must be 8 characters long").required("Password is required")
+  password: yup
+    .string()
+    .min(8, "must be 8 characters long")
+    .required("Password is required"),
 });
 
 const ReactHookForm = () => {
@@ -23,10 +27,21 @@ const ReactHookForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(validationSchema) });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFormSubmit = (data) => {
-    console.log(data);
+    setIsSubmitting(data);
+
+    setTimeout(() => {
+      console.log(data);
+
+      setIsSubmitting(false);
+      reset();
+    }, 5000);
+
+    //after doing what youre meant to do you innvoke the reset funct
   };
   return (
     <div>
@@ -71,9 +86,11 @@ const ReactHookForm = () => {
           }`}
           {...register("password")}
         />
-        <p className="text-red-500">{errors.password && errors.password.message}</p>
+        <p className="text-red-500">
+          {errors.password && errors.password.message}
+        </p>
         <button type="submit" className="w-full mt-2 btn btn-accent">
-          Submit
+          {isSubmitting ? "Subitting..." : "Submit"}
         </button>
       </form>
     </div>
