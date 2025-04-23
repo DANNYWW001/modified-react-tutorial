@@ -1,5 +1,6 @@
 import React from "react";
 import { tweets } from "../data";
+import { Link } from "react-router-dom";
 
 const Timeline = () => {
   return (
@@ -30,9 +31,10 @@ const Timeline = () => {
                   </div>
                   <p className="my-2">{tweet}</p>
                   <div className="flex gap-3 items-center">
-                    <p>{likes}likes</p>
-                    <p>{comments.length}comments</p>
+                    <p>{likes} likes</p>
+                    <p>{comments.length} comments</p>
                   </div>
+                  <Link to={`/timeline/${id}`}>Read More</Link>
                 </div>
               );
             })}

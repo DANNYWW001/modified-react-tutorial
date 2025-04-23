@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Timeline from "./pages/Timeline";
+import SingleTweet from "./pages/SingleTweet";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/contact-us" element={<Navigate to="/contact" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/timeline" element={<Timeline />} />
+          <Route path="/timeline/:id" element={<SingleTweet />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

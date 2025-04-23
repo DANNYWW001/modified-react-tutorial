@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const loginFormValidator = yup.object().shape({
   email: yup
     .string()
-    .email("Invalid email address")
+    .email("Invalid email address") 
     .required("Email is Required"),
   password: yup
     .string()
