@@ -1,21 +1,24 @@
 import React from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../assets/hooks/useAppContext";
 // assuming to login correctly you have to  johndoe@gmail.com as well as the password being johnDoe
 const loginFormValidator = yup.object().shape({
   email: yup
     .string()
-    .email("Invalid email address") 
+    .email("Invalid email address")
     .required("Email is Required"),
   password: yup
     .string()
     .required("Password is Required")
     .min(8, "Password too weak, must be more than 7 characters"),
 });
+
 const Login = () => {
+  const { value2 } = useAppContext;
   const {
     register,
     handleSubmit,
@@ -30,7 +33,7 @@ const Login = () => {
     const { email, password } = data;
     if (email === "johndoe@gmail.com" && password === "password") {
       // redirect
-      redirect("/timeline")
+      redirect("/timeline");
     } else {
       // show error msg
       setError(true);
@@ -39,7 +42,7 @@ const Login = () => {
   return (
     <div className="h-[75vh] flex items-center justify-center">
       <form onSubmit={handleSubmit(onLogin)} className="myform shadow-2xl">
-        <h1 className="text-2xl">Login to continue</h1>
+        <h1 className="text-2xl">{value2}</h1>
         <input
           type="email"
           placeholder="Email Address"

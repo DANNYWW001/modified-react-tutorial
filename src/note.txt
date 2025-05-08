@@ -142,3 +142,35 @@ return <p key={index}>{name}</p>
 
 
   we need to create a custom use called use
+
+  context api
+
+  useRef
+
+  react optimizationcan 
+
+
+  Global state 
+  state values that can be accessed by different component at same time
+  context api- helps us manage global state values, you can liken a context api to a store that holds different values (i.e store(val1, val2, val3))
+  steps:
+  1. create your store
+  2. use the value provided by the store
+    to use those values you need two things
+    i. context that was created: AppContext
+    ii. the second is useContext from react
+
+
+  const AppContext = createContext(); - this gives us access to a context app provider
+
+prop drilling - this means youre passing props that are not needed
+
+
+  local states
+  state values that can be accessed by one component at a time
+
+
+  react optimization
+  1. code splitting
+
+  suspence and a lazy func
